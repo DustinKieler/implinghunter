@@ -28,7 +28,6 @@ def main():
     print("Now waiting patiently for implings...")
     for submission in reddit.subreddit('2007scape').stream.submissions():
         process_submission(submission)
-    # Eventually should do proper error handling?
     print("Submission loop has been terminated - restart needed.")
 
 
