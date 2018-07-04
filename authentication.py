@@ -9,7 +9,7 @@ import configparser
 
 def create_config():
     """Creates a file named 'auth.ini' which holds the email recipient's gmail authentication credentials listed here.
-	   These will be read when an e-mail is created and sent."""
+       These will be read when an e-mail is created and sent."""
     config = configparser.ConfigParser()
     config['CREDENTIALS'] = {'Address': 'YOUR GMAIL ADDRESS HERE',
                              'Key': 'THE PASSWORD TO YOUR GMAIL ADDRESS HERE'}
