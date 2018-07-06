@@ -39,7 +39,7 @@ def process_submission(submission):
        If a keyword is a match, calls to create and send an e-mail."""
     for keyword in keywords:
         if keyword in submission.title.lower() or keyword in submission.selftext.lower():
-            email = create_email(submission.title, submission.selftext)
+            email = create_email(submission.title, submission.selftext, submission.url)
             send_notification_email(email)
 
 
@@ -53,10 +53,10 @@ def send_notification_email(email):
     print("E-mail sent!")
 
 
-def create_email(sub_title, sub_text):
+def create_email(sub_title, sub_text, sub_url):
     """Creates an e-mail containing the impling post's title and text.
        The TO and FROM fields are the e-mail address in the configuration."""
-    msg = MIMEText("Title: " + sub_title + "\n" + "Text: " + sub_text)
+    msg = MIMEText("Title: " + sub_title + "\n" + "Text: " + sub_text + "\n" + "URL: " + sub_url)
     address = get_credential('Address')
     msg['Subject'] = 'POTENTIAL IMPLING ALERT'
     msg['From'] = address
